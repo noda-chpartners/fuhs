@@ -10,6 +10,7 @@ const canonical = new URL(Astro.url.pathname, site).href;
 const ogImage = new URL('/ogp.jpg', site).href;
 
 import '../styles/global.scss';
+import Loader from '../components/Loader.astro';
 ---
 
 <!doctype html>
@@ -49,12 +50,13 @@ import '../styles/global.scss';
 		/>
 		<script is:inline>
 			if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
-				document.documentElement.classList.add('js');
+				document.documentElement.classList.add('js', 'is-loading');
 			}
 		</script>
 	</head>
 	<body>
 		<a class="skip-link" href="#main">本文へスキップ</a>
+		<Loader />
 		<slot />
 		<script>
 			import '../scripts/motion.ts';

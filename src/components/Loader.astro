@@ -1,0 +1,22 @@
+---
+import { Image } from 'astro:assets';
+import wordmark from '../assets/images/logo-wordmark.png';
+---
+
+<div class="loader" id="loader" aria-hidden="true">
+	<div class="loader-mark">
+		<p class="loader-kicker">Hair Cut room.</p>
+		<Image
+			src={wordmark}
+			alt=""
+			widths={[440, 840]}
+			sizes="(min-width: 880px) 22rem, 72vw"
+			quality={90}
+			loading="eager"
+			fetchpriority="high"
+			class="loader-logo"
+		/>
+		<span class="loader-line"></span>
+		<p class="loader-place">町田市鶴川</p>
+	</div>
+</div>

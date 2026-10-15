@@ -61,7 +61,30 @@ setupNav();
 
 const motion = gsap.matchMedia();
 
+function clearLoader() {
+	document.getElementById('loader')?.remove();
+	document.documentElement.classList.remove('is-loading');
+}
+
+function revealHero() {
+	gsap.to('[data-hero]', {
+		autoAlpha: 1,
+		y: 0,
+		duration: 1.05,
+		stagger: 0.08,
+		ease: 'power3.out',
+		delay: 0.08,
+	});
+
+	gsap.to('.hero-photo', {
+		scale: 1,
+		duration: 1.6,
+		ease: 'power2.out',
+	});
+}
+
 motion.add('(prefers-reduced-motion: reduce)', () => {
+	clearLoader();
 	const onScroll = () => markHeader(window.scrollY);
 	onScroll();
 	window.addEventListener('scroll', onScroll, { passive: true });
@@ -103,19 +126,10 @@ motion.add('(prefers-reduced-motion: no-preference)', () => {
 		const anchors = document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]');
 		anchors.forEach((anchor) => anchor.addEventListener('click', onAnchor));
 
-		gsap.to('[data-hero]', {
-			autoAlpha: 1,
-			y: 0,
-			duration: 1.05,
-			stagger: 0.08,
-			ease: 'power3.out',
-			delay: 0.08,
-		});
-
-		gsap.to('.hero-photo', {
-			scale: 1,
-			duration: 1.6,
-			ease: 'power2.out',
+		void playLoader().catch(() => {
+			document.documentElement.classList.remove('js');
+			clearLoader();
+			lenis?.start();
 		});
 
 		ScrollTrigger.batch('[data-reveal]', {
@@ -176,5 +190,72 @@ motion.add('(prefers-reduced-motion: no-preference)', () => {
 		};
 	} catch {
 		document.documentElement.classList.remove('js');
+		clearLoader();
+		lenis?.start();
 	}
 });
+
+async function playLoader() {
+	const loader = document.getElementById('loader');
+	if (!loader) {
+		revealHero();
+		return;
+	}
+
+	loader.classList.add('is-held');
+	lenis?.stop();
+
+	const image = loader.querySelector('img');
+	const fontReady = document.fonts?.ready ?? Promise.resolve();
+	const imageReady =
+		!image || image.complete
+			? Promise.resolve()
+			: new Promise<void>((resolve) => {
+					image.addEventListener('load', () => resolve(), { once: true });
+					image.addEventListener('error', () => resolve(), { once: true });
+				});
+
+	await Promise.race([
+		Promise.all([fontReady, imageReady]),
+		new Promise((resolve) => window.setTimeout(resolve, 1400)),
+	]);
+
+	if (!loader.isConnected) {
+		revealHero();
+		lenis?.start();
+		return;
+	}
+
+	let released = false;
+	let failSafe = 0;
+	const release = (force: boolean) => {
+		if (released) return;
+		released = true;
+		window.clearTimeout(failSafe);
+		if (force) {
+			gsap.killTweensOf(loader);
+			gsap.set('[data-hero]', { autoAlpha: 1, y: 0 });
+			gsap.set('.hero-photo', { scale: 1 });
+		}
+		clearLoader();
+		lenis?.start();
+		ScrollTrigger.refresh();
+	};
+
+	failSafe = window.setTimeout(() => release(true), 6500);
+
+	gsap
+		.timeline({ defaults: { ease: 'power3.out' }, onComplete: () => release(false) })
+		.fromTo('.loader-logo', { autoAlpha: 0, y: 14 }, { autoAlpha: 1, y: 0, duration: 0.8 })
+		.fromTo(
+			'.loader-line',
+			{ scaleX: 0 },
+			{ scaleX: 1, duration: 0.5, ease: 'power2.inOut', transformOrigin: 'center center' },
+			'-=0.32',
+		)
+		.fromTo('.loader-place', { autoAlpha: 0, y: 8 }, { autoAlpha: 1, y: 0, duration: 0.45 }, '-=0.28')
+		.to('.loader', { yPercent: -100, duration: 0.9, ease: 'power3.inOut' }, '+=0.32')
+		.addLabel('reveal', '<0.2')
+		.to('[data-hero]', { autoAlpha: 1, y: 0, duration: 1.05, stagger: 0.08 }, 'reveal')
+		.to('.hero-photo', { scale: 1, duration: 1.45, ease: 'power2.out' }, 'reveal');
+}

@@ -143,6 +143,92 @@ button {
 	will-change: transform;
 }
 
+.loader {
+	position: fixed;
+	inset: 0;
+	z-index: 70;
+	display: grid;
+	place-items: center;
+	background:
+		radial-gradient(900px 420px at 0% -10%, rgba(255, 250, 244, 0.9), transparent 55%),
+		radial-gradient(700px 380px at 100% 8%, rgba(236, 214, 190, 0.45), transparent 50%),
+		var(--paper);
+	pointer-events: auto;
+	animation: loader-dismiss 0.55s ease 7s forwards;
+}
+
+.loader.is-held {
+	animation: none;
+}
+
+.loader-mark {
+	display: grid;
+	justify-items: center;
+	width: min(72vw, 22rem);
+	text-align: center;
+}
+
+.loader-kicker,
+.loader-place {
+	margin: 0;
+	font-family: var(--serif);
+	letter-spacing: 0.22em;
+	color: var(--ink-soft);
+}
+
+.loader-kicker {
+	margin-bottom: 0.9rem;
+	font-size: 0.78rem;
+}
+
+.loader-logo {
+	width: 100%;
+	height: auto;
+}
+
+.loader-line {
+	display: block;
+	width: 3.4rem;
+	height: 2px;
+	margin-top: 1.15rem;
+	background: var(--red);
+	box-shadow: 0 6px 0 var(--red);
+	transform-origin: center;
+}
+
+.loader-place {
+	margin-top: 1.05rem;
+	font-size: 0.72rem;
+}
+
+.js .loader-logo,
+.js .loader-place {
+	opacity: 0;
+}
+
+.js .loader-line {
+	transform: scaleX(0);
+}
+
+html.is-loading {
+	overflow: hidden;
+	animation: loader-unlock 0s linear 7.2s forwards;
+}
+
+@keyframes loader-dismiss {
+	to {
+		opacity: 0;
+		visibility: hidden;
+		pointer-events: none;
+	}
+}
+
+@keyframes loader-unlock {
+	to {
+		overflow: visible;
+	}
+}
+
 .site-header {
 	position: sticky;
 	top: 0;
@@ -1009,6 +1095,15 @@ h2 {
 @media (prefers-reduced-motion: reduce) {
 	html {
 		scroll-behavior: auto;
+	}
+
+	.loader {
+		display: none;
+	}
+
+	html.is-loading {
+		overflow: visible;
+		animation: none;
 	}
 
 	.js [data-hero],
