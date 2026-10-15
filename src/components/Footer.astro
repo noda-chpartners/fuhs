@@ -1,0 +1,21 @@
+---
+import { Image } from 'astro:assets';
+import wordmark from '../assets/images/logo-wordmark.png';
+import mark from '../assets/images/logo-mark.png';
+import { shop } from '../data/shop';
+---
+
+<footer class="site-footer">
+	<div class="container footer-bar">
+		<a class="brand" href="#top" aria-label="==Fuhs== トップへ">
+			<Image src={wordmark} alt="" widths={[220, 440]} sizes="200px" quality={90} />
+		</a>
+		<div class="footer-meta">
+			<p>Hair Cut room. / Minced meat and sweet cafe</p>
+			<p>{shop.postal} {shop.address}</p>
+			<p><a href={shop.telHref}>{shop.tel}</a></p>
+		</div>
+		<Image class="footer-mark" src={mark} alt="" widths={[96, 160]} sizes="56px" quality={90} />
+	</div>
+	<p class="copyright">© {shop.name}</p>
+</footer>

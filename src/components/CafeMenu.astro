@@ -1,0 +1,33 @@
+---
+import { Image } from 'astro:assets';
+import cafeGirl from '../assets/images/IMG_2695.png';
+import MenuBoard from './MenuBoard.astro';
+import { cafeMenu, cafeNotes } from '../data/shop';
+---
+
+<section class="section cafe" id="cafe" aria-labelledby="cafe-title">
+	<div class="container">
+		<div class="cafe-intro">
+			<div>
+				<header class="section-head" data-reveal>
+					<p class="section-index">03</p>
+					<p class="section-kicker">Cafe</p>
+					<h2 id="cafe-title">ひき肉と、自家製の甘いもの。</h2>
+				</header>
+				<p class="lead" data-reveal>
+					ミンチミートを中心に、自家製のアレンジとスイーツをご用意しています。お帰りのついでに、どうぞ。
+				</p>
+			</div>
+			<figure class="portrait portrait-leaf" data-reveal>
+				<Image
+					src={cafeGirl}
+					alt="紙袋を持つ、==Fuhs==のカフェキャラクター"
+					widths={[280, 480, 720]}
+					sizes="(min-width: 880px) 220px, 52vw"
+					quality={90}
+				/>
+			</figure>
+		</div>
+		<MenuBoard groups={cafeMenu} notes={cafeNotes} />
+	</div>
+</section>

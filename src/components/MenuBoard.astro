@@ -1,0 +1,40 @@
+---
+import type { MenuGroup } from '../data/shop';
+
+interface Props {
+	groups: MenuGroup[];
+	notes?: string[];
+}
+
+const { groups, notes = [] } = Astro.props;
+---
+
+<div class="menu-board">
+	{
+		groups.map((group) => (
+			<section class="menu-group" data-reveal>
+				<h3>{group.label}</h3>
+				<ul>
+					{group.items.map((item) => (
+						<li>
+							<span class="menu-name">{item.name}</span>
+							<span class="menu-price">
+								{item.price}
+								<span class="yen">円</span>
+							</span>
+						</li>
+					))}
+				</ul>
+			</section>
+		))
+	}
+</div>
+{
+	notes.length > 0 && (
+		<ul class="menu-notes" data-reveal>
+			{notes.map((note) => (
+				<li>{note}</li>
+			))}
+		</ul>
+	)
+}

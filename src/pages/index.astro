@@ -1,16 +1,50 @@
 ---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import HairMenu from '../components/HairMenu.astro';
+import PhotoBand from '../components/PhotoBand.astro';
+import CafeMenu from '../components/CafeMenu.astro';
+import Access from '../components/Access.astro';
+import Reserve from '../components/Reserve.astro';
+import Footer from '../components/Footer.astro';
+import { shop } from '../data/shop';
+
+const title = '==Fuhs== | 鶴川の美容室とカフェ';
+const description =
+	'町田市鶴川の美容室とテイクアウトカフェ ==Fuhs==。カット、カラー、ミンチミートと自家製スイーツ。営業は9:30から、定休は月曜。ご予約 042-733-3811。';
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': ['HairSalon', 'CafeOrCoffeeShop'],
+	name: shop.name,
+	description,
+	telephone: '+81-42-733-3811',
+	image: new URL('/ogp.jpg', Astro.site ?? Astro.url).href,
+	address: {
+		'@type': 'PostalAddress',
+		postalCode: '195-0061',
+		addressRegion: '東京都',
+		addressLocality: '町田市',
+		streetAddress: '鶴川2丁目14-13',
+		addressCountry: 'JP',
+	},
+	sameAs: [shop.instagram],
+};
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Base title={title} description={description}>
+	<Header />
+	<main id="main">
+		<Hero />
+		<About />
+		<HairMenu />
+		<PhotoBand />
+		<CafeMenu />
+		<Access />
+		<Reserve />
+	</main>
+	<Footer />
+	<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+</Base>

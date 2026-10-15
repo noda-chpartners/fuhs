@@ -1,0 +1,39 @@
+---
+import { Image } from 'astro:assets';
+import wordmark from '../assets/images/logo-wordmark.png';
+import Icon from './Icon.astro';
+import { shop } from '../data/shop';
+---
+
+<header class="site-header">
+	<div class="container header-bar">
+		<a class="brand" href="#top" aria-label="==Fuhs== トップへ">
+			<Image
+				src={wordmark}
+				alt=""
+				widths={[220, 440]}
+				sizes="210px"
+				quality={90}
+				loading="eager"
+				class="brand-logo"
+			/>
+		</a>
+		<button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+			<span class="sr-only">メニュー</span>
+			<span class="nav-toggle-bars" aria-hidden="true"></span>
+		</button>
+		<nav id="site-nav" class="site-nav" aria-label="メイン">
+			<a href="#about">ごあいさつ</a>
+			<a href="#hair">美容室</a>
+			<a href="#cafe">カフェ</a>
+			<a href="#access">アクセス</a>
+			<a class="nav-ig" href={shop.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram（新しいタブ）">
+				<Icon name="instagram" />
+			</a>
+			<a class="nav-tel" href={shop.telHref}>
+				<Icon name="phone" />
+				<span>{shop.tel}</span>
+			</a>
+		</nav>
+	</div>
+</header>

@@ -1,0 +1,75 @@
+---
+import { Image } from 'astro:assets';
+import wordmark from '../assets/images/logo-wordmark.png';
+import hero from '../assets/images/IMG_2697.jpg';
+import Icon from './Icon.astro';
+import { shop } from '../data/shop';
+---
+
+<section class="hero" id="top">
+	<div class="container hero-grid">
+		<div class="hero-copy">
+			<p class="hero-place" data-hero>町田市鶴川 · 鶴川団地</p>
+			<p class="hero-kicker" data-hero>Hair Cut room.</p>
+			<h1 class="hero-logo-wrap" data-hero>
+				<Image
+					src={wordmark}
+					alt=""
+					widths={[480, 840, 1200]}
+					sizes="(min-width: 880px) 42vw, 88vw"
+					quality={90}
+					loading="eager"
+					fetchpriority="high"
+					class="hero-logo"
+				/>
+				<span class="sr-only">==Fuhs==</span>
+			</h1>
+			<p class="hero-sub" data-hero>Minced meat and sweet cafe</p>
+			<p class="hero-lead" data-hero>髪を整えて、ひき肉とお菓子を持ち帰る。</p>
+			<p class="hero-desc" data-hero>町田市鶴川にある、美容室とテイクアウトカフェです。</p>
+			<div class="hero-actions" data-hero>
+				<a class="btn btn-primary" href={shop.telHref}>
+					<Icon name="phone" />
+					電話で予約する
+				</a>
+				<a class="btn btn-line" href="#hair">メニューを見る</a>
+			</div>
+		</div>
+		<figure class="hero-frame" data-hero>
+			<Image
+				src={hero}
+				alt="茶色の看板と、入口前にチェアが並ぶ==Fuhs==の外観"
+				widths={[640, 960, 1400]}
+				sizes="(min-width: 880px) 48vw, 100vw"
+				quality={78}
+				loading="eager"
+				fetchpriority="high"
+				class="hero-photo"
+			/>
+		</figure>
+	</div>
+	<div class="container">
+		<ul class="facts">
+			<li data-reveal>
+				<Icon name="clock" />
+				<span>営業</span>
+				<strong>{shop.hours}</strong>
+			</li>
+			<li data-reveal>
+				<Icon name="scissors" />
+				<span>美容受付</span>
+				<strong>{shop.reception}まで</strong>
+			</li>
+			<li data-reveal>
+				<Icon name="calendar" />
+				<span>定休日</span>
+				<strong>{shop.closed}</strong>
+			</li>
+			<li data-reveal>
+				<Icon name="train" />
+				<span>最寄駅</span>
+				<strong>鶴川駅 {shop.walk}</strong>
+			</li>
+		</ul>
+	</div>
+</section>

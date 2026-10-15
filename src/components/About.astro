@@ -1,0 +1,42 @@
+---
+import { Image } from 'astro:assets';
+import stylist from '../assets/images/IMG_2693.png';
+---
+
+<section class="section about" id="about" aria-labelledby="about-title">
+	<div class="container">
+		<div class="about-layout">
+			<figure class="portrait portrait-blush" data-reveal>
+				<Image
+					src={stylist}
+					alt="ハサミとコームを持った、==Fuhs==の美容師キャラクター"
+					widths={[280, 480, 720]}
+					sizes="(min-width: 880px) 240px, 58vw"
+					quality={90}
+				/>
+			</figure>
+			<div class="about-copy">
+				<header class="section-head" data-reveal>
+					<p class="section-index">01</p>
+					<p class="section-kicker">About</p>
+					<h2 id="about-title">名前から、つけた店です。</h2>
+				</header>
+				<div class="story" data-reveal>
+					<p>
+						高校を卒業して、東京美容専門学院へ進みました。町田の小田急ビューティー田中でインターンをしたあと、美容師である母が、柿生・下麻生に美容室サロン・ド・フラワーを開きました。そこからしばらく、母と一緒に店を営みました。
+					</p>
+					<p>
+						その後、全国チェーンのイワサキで15年勤め、念願だった自分のサロンを開くことができました。
+					</p>
+					<p>
+						店名は、私の名前を用いた Fuhs（フーズ）。美容ルームと、ミンチミートとスイーツのテイクアウトカフェです。みなさまに愛され、親しんでいただけたら幸いです。
+					</p>
+					<p class="sign">
+						<span>店主</span>
+						林 富士子
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

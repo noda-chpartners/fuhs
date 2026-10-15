@@ -1,0 +1,67 @@
+---
+import { Image } from 'astro:assets';
+import map from '../assets/images/IMG_2691.png';
+import Icon from './Icon.astro';
+import { shop } from '../data/shop';
+---
+
+<section class="section section-warm" id="access" aria-labelledby="access-title">
+	<div class="container access-layout">
+		<figure class="access-map" data-reveal>
+			<Image
+				src={map}
+				alt="鶴川駅から==Fuhs==までの案内図。横浜銀行の前"
+				widths={[420, 750]}
+				sizes="(min-width: 880px) 380px, 100vw"
+				quality={90}
+			/>
+		</figure>
+		<div class="access-copy">
+			<header class="section-head" data-reveal>
+				<p class="section-index">04</p>
+				<p class="section-kicker">Access</p>
+				<h2 id="access-title">横浜銀行の、前です。</h2>
+			</header>
+			<p class="lead" data-reveal>
+				{shop.place}にあります。{shop.station}から{shop.walk}です。
+			</p>
+			<dl class="access-list" data-reveal>
+				<div>
+					<dt>住所</dt>
+					<dd>
+						{shop.postal}<br />
+						{shop.address}<br />
+						{shop.place}<br />
+						{shop.landmark}
+					</dd>
+				</div>
+				<div>
+					<dt>最寄駅</dt>
+					<dd>{shop.station}　{shop.walk}</dd>
+				</div>
+				<div>
+					<dt>営業時間</dt>
+					<dd>
+						{shop.hours}<br />
+						美容ルーム受付終了 {shop.reception}
+					</dd>
+				</div>
+				<div>
+					<dt>定休日</dt>
+					<dd>
+						{shop.closed}<br />
+						そのほかは毎月、Instagramでお知らせします
+					</dd>
+				</div>
+				<div>
+					<dt>電話</dt>
+					<dd><a href={shop.telHref}>{shop.tel}</a></dd>
+				</div>
+			</dl>
+			<a class="text-link" href={shop.map} target="_blank" rel="noopener noreferrer" data-reveal>
+				<Icon name="pin" />
+				Googleマップで開く
+			</a>
+		</div>
+	</div>
+</section>

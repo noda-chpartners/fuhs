@@ -1,0 +1,32 @@
+---
+import { Image } from 'astro:assets';
+import qr from '../assets/images/IMG_2700.jpg';
+import Icon from './Icon.astro';
+import { shop } from '../data/shop';
+---
+
+<section class="reserve" id="reserve" aria-labelledby="reserve-title">
+	<div class="container reserve-grid">
+		<div class="reserve-copy">
+			<p class="section-kicker section-kicker-light" data-reveal>Reservation</p>
+			<h2 id="reserve-title" data-reveal>ご予約は、お電話で。</h2>
+			<a class="reserve-tel" href={shop.telHref} data-reveal>{shop.tel}</a>
+			<p class="reserve-note" data-reveal>
+				営業は9:30から。終わりの時間は、その日の気まぐれです。美容ルームの受付は{shop.reception}まで。定休日は{shop.closed}。そのほかは毎月、Instagramでお知らせしています。
+			</p>
+			<a class="btn btn-light reserve-ig" href={shop.instagram} target="_blank" rel="noopener noreferrer" data-reveal>
+				<Icon name="instagram" />
+				{shop.instagramHandle}
+			</a>
+		</div>
+		<figure class="qr-card" data-reveal>
+			<Image
+				src={qr}
+				alt="Instagram @FUHS_HAIR_CAFE のQRコード"
+				widths={[220, 440]}
+				sizes="160px"
+				quality={90}
+			/>
+		</figure>
+	</div>
+</section>
