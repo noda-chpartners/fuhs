@@ -49,8 +49,9 @@ import Loader from '../components/Loader.astro';
 			rel="stylesheet"
 		/>
 		<script is:inline>
+			document.documentElement.classList.add('js');
 			if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
-				document.documentElement.classList.add('js', 'is-loading');
+				document.documentElement.classList.add('is-loading');
 			}
 		</script>
 	</head>

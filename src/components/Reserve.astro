@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import qr from '../assets/images/IMG_2700.jpg';
+import cafeCharacter from '../assets/images/IMG_2695.png';
 import Icon from './Icon.astro';
 import { shop } from '../data/shop';
 ---
@@ -19,14 +20,19 @@ import { shop } from '../data/shop';
 				{shop.instagramHandle}
 			</a>
 		</div>
-		<figure class="qr-card" data-reveal>
-			<Image
-				src={qr}
-				alt="Instagram @FUHS_HAIR_CAFE のQRコード"
-				widths={[220, 440]}
-				sizes="160px"
-				quality={90}
-			/>
-		</figure>
+		<div class="reserve-visuals">
+			<figure class="reserve-character" data-reveal>
+				<Image src={cafeCharacter} alt="緑のエプロンでテイクアウトの紙袋を持つ、Fuhsのカフェキャラクター" widths={[180, 360]} sizes="130px" quality={90} />
+			</figure>
+			<figure class="qr-card" data-reveal>
+				<Image
+					src={qr}
+					alt="Instagram @FUHS_HAIR_CAFE のQRコード"
+					widths={[220, 440]}
+					sizes="160px"
+					quality={90}
+				/>
+			</figure>
+		</div>
 	</div>
 </section>

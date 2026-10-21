@@ -1,0 +1,75 @@
+
+> fuhs@0.0.1 build
+> astro build
+
+18:56:17 [vite] Re-optimizing dependencies because vite config has changed
+18:56:17 [types] Generated 402ms
+18:56:17 [build] output: "static"
+18:56:17 [build] mode: "static"
+18:56:17 [build] directory: C:\Users\callt\Desktop\作成中\修正中\Fuhs\dist\
+18:56:17 [build] Collecting build info...
+18:56:17 [build] ✓ Completed in 474ms.
+18:56:17 [build] Building static entrypoints...
+18:56:18 [vite] ✓ built in 781ms
+18:56:18 [vite] ✓ built in 136ms
+18:56:18 [build] Rearranging server assets...
+
+ generating static routes 
+18:56:18   ├─ /index.html (+37ms) 
+18:56:18 ✓ Completed in 69ms.
+
+ generating optimized images 
+18:56:18   ▶ /_astro/IMG_2696.BIZzReMQ_s1wH3.webp (reused cache entry) (+10ms) (1/48)
+18:56:18   ▶ /_astro/logo-wordmark.D7JvAsj6_1fJSGr.webp (reused cache entry) (+11ms) (2/48)
+18:56:18   ▶ /_astro/IMG_2693.C9S3n1h1_ZdFtM8.webp (reused cache entry) (+11ms) (3/48)
+18:56:18   ▶ /_astro/IMG_2692.OAAMqfUK_Z1AAXjS.webp (reused cache entry) (+11ms) (4/48)
+18:56:18   ▶ /_astro/IMG_2698.D9DcThkM_2uFv5H.webp (reused cache entry) (+12ms) (5/48)
+18:56:18   ▶ /_astro/hair-menu-visual.aOVi8q_q_1WjO9T.webp (reused cache entry) (+12ms) (6/48)
+18:56:18   ▶ /_astro/refa-veena-visual.oM6zSnxm_2uOCf9.webp (reused cache entry) (+13ms) (7/48)
+18:56:18   ▶ /_astro/IMG_2695.04wcNHQi_1jmQuT.webp (reused cache entry) (+13ms) (8/48)
+18:56:18   ▶ /_astro/cafe-sweets-visual.DseEZgi2_ZyIDkp.webp (reused cache entry) (+13ms) (9/48)
+18:56:18   ▶ /_astro/IMG_2691.BXyEPsFq_1q71C0.webp (reused cache entry) (+14ms) (10/48)
+18:56:18   ▶ /_astro/cafe-main-visual.GLGzTnBk_Rd84g.webp (reused cache entry) (+14ms) (11/48)
+18:56:18   ▶ /_astro/IMG_2694.5NP8F7xO_Z1uUVHg.webp (reused cache entry) (+15ms) (12/48)
+18:56:18   ▶ /_astro/logo-wordmark.D7JvAsj6_1YSl0A.webp (reused cache entry) (+11ms) (13/48)
+18:56:18   ▶ /_astro/IMG_2693.C9S3n1h1_Z1fWGd8.webp (reused cache entry) (+11ms) (14/48)
+18:56:18   ▶ /_astro/IMG_2692.OAAMqfUK_NhLB5.webp (reused cache entry) (+12ms) (15/48)
+18:56:18   ▶ /_astro/IMG_2698.D9DcThkM_Z2biE55.webp (reused cache entry) (+12ms) (16/48)
+18:56:18   ▶ /_astro/hair-menu-visual.aOVi8q_q_Z1mvYse.webp (reused cache entry) (+12ms) (17/48)
+18:56:18   ▶ /_astro/IMG_2695.04wcNHQi_2kBdUC.webp (reused cache entry) (+12ms) (18/48)
+18:56:18   ▶ /_astro/refa-veena-visual.oM6zSnxm_7qDCe.webp (reused cache entry) (+13ms) (19/48)
+18:56:18   ▶ /_astro/cafe-sweets-visual.DseEZgi2_O1z3B.webp (reused cache entry) (+13ms) (20/48)
+18:56:18   ▶ /_astro/IMG_2691.BXyEPsFq_Z1tTG1m.webp (reused cache entry) (+13ms) (21/48)
+18:56:18   ▶ /_astro/cafe-main-visual.GLGzTnBk_Z2rCFxR.webp (reused cache entry) (+14ms) (22/48)
+18:56:18   ▶ /_astro/IMG_2700.BWz55uk4_Z111IF6.webp (reused cache entry) (+14ms) (23/48)
+18:56:18   ▶ /_astro/IMG_2694.5NP8F7xO_Z1bSr8S.webp (reused cache entry) (+14ms) (24/48)
+18:56:18   ▶ /_astro/IMG_2693.C9S3n1h1_Z1haI1x.webp (reused cache entry) (+13ms) (25/48)
+18:56:18   ▶ /_astro/logo-wordmark.D7JvAsj6_2nEu0X.webp (reused cache entry) (+14ms) (26/48)
+18:56:18   ▶ /_astro/IMG_2692.OAAMqfUK_1bFfA8.webp (reused cache entry) (+13ms) (27/48)
+18:56:18   ▶ /_astro/hair-menu-visual.aOVi8q_q_Z28aQ1d.webp (reused cache entry) (+12ms) (28/48)
+18:56:18   ▶ /_astro/IMG_2695.04wcNHQi_CTf5M.webp (reused cache entry) (+12ms) (29/48)
+18:56:18   ▶ /_astro/refa-veena-visual.oM6zSnxm_1l4QzL.webp (reused cache entry) (+12ms) (30/48)
+18:56:18   ▶ /_astro/cafe-sweets-visual.DseEZgi2_Zkx6DW.webp (reused cache entry) (+12ms) (31/48)
+18:56:18   ▶ /_astro/logo-mark.CZQyScyL_1PwFPU.webp (reused cache entry) (+11ms) (32/48)
+18:56:18   ▶ /_astro/cafe-main-visual.GLGzTnBk_Z8be9u.webp (reused cache entry) (+12ms) (33/48)
+18:56:18   ▶ /_astro/IMG_2700.BWz55uk4_1RALp4.webp (reused cache entry) (+13ms) (34/48)
+18:56:18   ▶ /_astro/IMG_2694.5NP8F7xO_2hknqO.webp (reused cache entry) (+13ms) (35/48)
+18:56:18   ▶ /_astro/IMG_2697.CAgW1J3__1eO4LV.webp (reused cache entry) (+13ms) (36/48)
+18:56:18   ▶ /_astro/IMG_2693.C9S3n1h1_Z2pB1LC.webp (reused cache entry) (+11ms) (37/48)
+18:56:18   ▶ /_astro/logo-wordmark.D7JvAsj6_2vKtbd.webp (reused cache entry) (+13ms) (38/48)
+18:56:18   ▶ /_astro/hair-menu-visual.aOVi8q_q_2qU9eW.webp (reused cache entry) (+13ms) (39/48)
+18:56:18   ▶ /_astro/IMG_2695.04wcNHQi_Z2vSYml.webp (reused cache entry) (+12ms) (40/48)
+18:56:18   ▶ /_astro/refa-veena-visual.oM6zSnxm_ZoExrX.webp (reused cache entry) (+13ms) (41/48)
+18:56:18   ▶ /_astro/logo-mark.CZQyScyL_MhiNm.webp (reused cache entry) (+12ms) (42/48)
+18:56:18   ▶ /_astro/cafe-sweets-visual.DseEZgi2_9lfBN.webp (reused cache entry) (+13ms) (43/48)
+18:56:18   ▶ /_astro/IMG_2700.BWz55uk4_Z24MyMa.webp (reused cache entry) (+11ms) (44/48)
+18:56:18   ▶ /_astro/cafe-main-visual.GLGzTnBk_ZDhmHg.webp (reused cache entry) (+14ms) (45/48)
+18:56:18   ▶ /_astro/logo-wordmark.D7JvAsj6_Z23vMEL.webp (reused cache entry) (+9ms) (46/48)
+18:56:18   ▶ /_astro/logo-mark.CZQyScyL_Z1Sago2.webp (reused cache entry) (+6ms) (47/48)
+18:56:18   ▶ /_astro/logo-wordmark.D7JvAsj6_Z1Bd9Hg.webp (reused cache entry) (+4ms) (48/48)
+18:56:18 ✓ Completed in 65ms.
+
+18:56:18 [build] ✓ Completed in 1.24s.
+18:56:18 [@astrojs/sitemap] `sitemap-index.xml` created at `dist`
+18:56:18 [build] 1 page(s) built in 1.78s
+18:56:18 [build] Complete!

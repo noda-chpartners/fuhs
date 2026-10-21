@@ -1,16 +1,17 @@
 ---
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 import wordmark from '../assets/images/logo-wordmark.png';
 import hero from '../assets/images/IMG_2697.jpg';
 import Icon from './Icon.astro';
 import { shop } from '../data/shop';
+
+const heroBackground = await getImage({ src: hero, format: 'webp', quality: 85 });
 ---
 
-<section class="hero" id="top">
+<section class="hero" id="top" aria-label="Fuhs 美容ルームとテイクアウトカフェ">
+	<div class="hero-background" style={{ backgroundImage: `url("${heroBackground.src}")` }} aria-hidden="true"></div>
 	<div class="container hero-grid">
 		<div class="hero-copy">
-			<p class="hero-place" data-hero>町田市鶴川 · 鶴川団地</p>
-			<p class="hero-kicker" data-hero>Hair Cut room.</p>
 			<h1 class="hero-logo-wrap" data-hero>
 				<Image
 					src={wordmark}
@@ -19,14 +20,11 @@ import { shop } from '../data/shop';
 					sizes="(min-width: 880px) 42vw, 88vw"
 					quality={90}
 					loading="eager"
-					fetchpriority="high"
 					class="hero-logo"
 				/>
-				<span class="sr-only">町田市鶴川の美容室・カフェ ==Fuhs==</span>
+				<span class="sr-only">町田市鶴川の美容ルーム・カフェ ==Fuhs==</span>
 			</h1>
-			<p class="hero-sub" data-hero>Minced meat and sweet cafe</p>
-			<p class="hero-lead" data-hero>髪を整えて、ひき肉とお菓子を持ち帰る。</p>
-			<p class="hero-desc" data-hero>町田市鶴川にある、美容室とテイクアウトカフェです。</p>
+			<p class="hero-lead" data-hero>美容ルームと、<br />テイクアウトカフェ。</p>
 			<div class="hero-actions" data-hero>
 				<a class="btn btn-primary" href={shop.telHref}>
 					<Icon name="phone" />
@@ -35,19 +33,10 @@ import { shop } from '../data/shop';
 				<a class="btn btn-line" href="#hair">メニューを見る</a>
 			</div>
 		</div>
-		<figure class="hero-frame" data-hero>
-			<Image
-				src={hero}
-				alt="茶色の看板と、入口前にチェアが並ぶ==Fuhs==の外観"
-				widths={[640, 960, 1400]}
-				sizes="(min-width: 880px) 48vw, 100vw"
-				quality={78}
-				loading="eager"
-				fetchpriority="high"
-				class="hero-photo"
-			/>
-		</figure>
 	</div>
+	<a class="hero-scroll" href="#about" aria-label="スクロールしてごあいさつへ">お店について <span aria-hidden="true">↓</span></a>
+</section>
+<div class="hero-info" aria-label="営業時間と店舗情報">
 	<div class="container">
 		<ul class="facts">
 			<li data-reveal>
@@ -72,4 +61,4 @@ import { shop } from '../data/shop';
 			</li>
 		</ul>
 	</div>
-</section>
+</div>

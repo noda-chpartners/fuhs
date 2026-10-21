@@ -17,14 +17,15 @@ const { groups, notes = [] } = Astro.props;
 				<ul>
 					{group.items.map((item) => (
 						<li>
-							<span class="menu-name">{item.name}</span>
-							<span class="menu-price">
+							<span class="menu-name">{item.name}{item.description && <small>{item.description}</small>}</span>
+							<span class:list={['menu-price', { 'menu-price-text': !/^[\d,]+$/.test(item.price) }]}>
 								{item.price}
-								<span class="yen">円</span>
+								{/^[\d,]+$/.test(item.price) && <span class="yen">円</span>}
 							</span>
 						</li>
 					))}
 				</ul>
+				{group.note && <p class="menu-group-note">{group.note}</p>}
 			</section>
 		))
 	}

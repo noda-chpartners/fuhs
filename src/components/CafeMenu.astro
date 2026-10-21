@@ -1,8 +1,11 @@
 ---
 import { Image } from 'astro:assets';
-import cafeGirl from '../assets/images/IMG_2695.png';
+import cafeGirl from '../assets/images/IMG_2685.PNG';
+import mainImage from '../assets/images/cafe-main-visual.png';
+import sweetsImage from '../assets/images/cafe-sweets-visual.png';
+import MenuVisual from './MenuVisual.astro';
 import MenuBoard from './MenuBoard.astro';
-import { cafeMenu, cafeNotes } from '../data/shop';
+import { cafeMenu } from '../data/shop';
 ---
 
 <section class="section cafe" id="cafe" aria-labelledby="cafe-title">
@@ -12,22 +15,28 @@ import { cafeMenu, cafeNotes } from '../data/shop';
 				<header class="section-head" data-reveal>
 					<p class="section-index">03</p>
 					<p class="section-kicker">Cafe</p>
-					<h2 id="cafe-title">ひき肉と、自家製の甘いもの。</h2>
+					<h2 id="cafe-title">自家製ミートソースとスイーツCaffe。</h2>
 				</header>
 				<p class="lead" data-reveal>
-					ミンチミートを中心に、自家製のアレンジとスイーツをご用意しています。お帰りのついでに、どうぞ。
+					Minced meat and sweet cafe<br />
+					自家製ミートソースとスイーツを、テイクアウトで。お帰りのついでに、どうぞ。
 				</p>
 			</div>
-			<figure class="portrait portrait-leaf" data-reveal>
+			<figure class="portrait portrait-lavender" data-reveal>
 				<Image
 					src={cafeGirl}
-					alt="紙袋を持つ、==Fuhs==のカフェキャラクター"
+					alt="帽子と青いエプロンで温かいカップを運ぶ、Fuhsのカフェキャラクター"
 					widths={[280, 480, 720]}
-					sizes="(min-width: 880px) 220px, 52vw"
+					sizes="(min-width: 880px) 110px, 80px"
 					quality={90}
 				/>
 			</figure>
 		</div>
-		<MenuBoard groups={cafeMenu} notes={cafeNotes} />
+		<div class="cafe-visuals">
+			<MenuVisual image={mainImage} alt="ミートソースパスタ、ロコモコ、ビッグサンドのイメージ" caption="自家製ミートソースから広がる、お食事。" />
+			<MenuVisual image={sweetsImage} alt="りんごとレーズンのFuhsケーキ、チーズケーキ、プリンと紅茶のイメージ" caption="手づくりスイーツと、ひと息を。" />
+		</div>
+		<div class="menu-heading" data-reveal><h3>カフェのメニュー</h3><p>お持ち帰りでお楽しみください</p></div>
+		<MenuBoard groups={cafeMenu} />
 	</div>
 </section>

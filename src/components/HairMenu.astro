@@ -1,29 +1,44 @@
 ---
 import { Image } from 'astro:assets';
 import interior from '../assets/images/IMG_2698.jpg';
+import stylist from '../assets/images/IMG_2693.png';
+import menuImage from '../assets/images/hair-menu-visual.png';
+import MenuVisual from './MenuVisual.astro';
 import MenuBoard from './MenuBoard.astro';
 import { hairMenu, hairNotes } from '../data/shop';
 ---
 
 <section class="section section-warm" id="hair" aria-labelledby="hair-title">
 	<div class="container">
-		<header class="section-head" data-reveal>
-			<p class="section-index">02</p>
-			<p class="section-kicker">Hair Cut room</p>
-			<h2 id="hair-title">気負わない、まちの美容室。</h2>
-		</header>
-		<p class="lead" data-reveal>
-			カットからカラー、パーマ、マニキュアまで。ご予約はお電話でお願いしています。美容ルームの受付は17:00までです。
-		</p>
-		<figure class="hair-figure" data-reveal>
-			<Image
-				src={interior}
-				alt="カットチェアと木の床がある、明るい美容ルームの店内"
-				widths={[640, 960, 1400]}
-				sizes="(min-width: 880px) 1080px, 100vw"
-				quality={78}
-			/>
-		</figure>
+		<div class="hair-intro">
+			<div>
+				<header class="section-head" data-reveal>
+					<p class="section-index">02</p>
+					<p class="section-kicker">Hair Cut room</p>
+					<h2 id="hair-title">気負わない、まちの美容ルーム。</h2>
+				</header>
+				<p class="lead" data-reveal>
+					カットからカラー、パーマ、マニキュアまで。ご予約はお電話でお願いしています。美容ルームの受付は17:00までです。
+				</p>
+			</div>
+			<figure class="portrait portrait-blush hair-character" data-reveal>
+				<Image src={stylist} alt="帽子とオレンジのエプロンでハサミとコームを持つ、Fuhsの美容師キャラクター" widths={[160, 320]} sizes="100px" quality={90} />
+			</figure>
+		</div>
+		<div class="hair-content">
+			<MenuVisual image={menuImage} alt="シザーとコーム、タオルを並べた美容ルームのイメージ" caption="カット・カラー・パーマを、気軽に。" />
+			<figure class="hair-figure" data-reveal>
+				<Image
+					src={interior}
+					alt="カットチェアと木の床がある、明るい美容ルームの店内"
+					widths={[640, 960, 1400]}
+					sizes="(min-width: 880px) 520px, 100vw"
+					quality={78}
+				/>
+				<figcaption>美容ルームの店内</figcaption>
+			</figure>
+		</div>
+		<div class="menu-heading" data-reveal><h3>美容ルームのメニュー</h3><p>表示価格はすべて税込です</p></div>
 		<MenuBoard groups={hairMenu} notes={hairNotes} />
 	</div>
 </section>

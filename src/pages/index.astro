@@ -6,30 +6,17 @@ import About from '../components/About.astro';
 import HairMenu from '../components/HairMenu.astro';
 import PhotoBand from '../components/PhotoBand.astro';
 import CafeMenu from '../components/CafeMenu.astro';
+import Refa from '../components/Refa.astro';
 import Access from '../components/Access.astro';
 import Reserve from '../components/Reserve.astro';
 import Footer from '../components/Footer.astro';
-import { cafeMenu, hairMenu, shop, type MenuGroup } from '../data/shop';
+import { shop } from '../data/shop';
 
-const title = '鶴川の美容室・カフェ ==Fuhs==｜町田市';
+const title = '鶴川の美容ルーム・カフェ ==Fuhs==｜町田市';
 const description =
-	'町田市鶴川の美容室・テイクアウトカフェ==Fuhs==。カット・カラー・パーマと、ひき肉や自家製スイーツ。鶴川駅徒歩25分、横浜銀行前。9:30〜、月曜定休。予約 042-733-3811。';
+	'町田市鶴川の美容ルーム・テイクアウトカフェ==Fuhs==。自家製ミートソースとスイーツCaffe。Minced meat and sweet cafe。鶴川駅徒歩25分、横浜銀行前。9:30〜、月曜定休。予約 042-733-3811。';
 
 const pageUrl = new URL('/', Astro.site ?? Astro.url).href;
-
-function toOffers(groups: MenuGroup[], type: 'Service' | 'Product') {
-	return groups.flatMap((group) =>
-		group.items.map((item) => ({
-			'@type': 'Offer',
-			price: item.price.replace(/,/g, ''),
-			priceCurrency: 'JPY',
-			itemOffered: {
-				'@type': type,
-				name: item.name,
-			},
-		})),
-	);
-}
 
 const jsonLd = {
 	'@context': 'https://schema.org',
@@ -41,7 +28,6 @@ const jsonLd = {
 	url: pageUrl,
 	image: new URL('/ogp.jpg', Astro.site ?? Astro.url).href,
 	telephone: '+81-42-733-3811',
-	priceRange: '¥150–¥5000',
 	address: {
 		'@type': 'PostalAddress',
 		postalCode: '195-0061',
@@ -53,22 +39,6 @@ const jsonLd = {
 	areaServed: '東京都町田市鶴川',
 	hasMap: shop.map,
 	sameAs: ['https://www.instagram.com/fuhs_hair_cafe/'],
-	hasOfferCatalog: {
-		'@type': 'OfferCatalog',
-		name: '美容ルームとカフェのメニュー',
-		itemListElement: [
-			{
-				'@type': 'OfferCatalog',
-				name: '美容ルーム',
-				itemListElement: toOffers(hairMenu, 'Service'),
-			},
-			{
-				'@type': 'OfferCatalog',
-				name: 'カフェ',
-				itemListElement: toOffers(cafeMenu, 'Product'),
-			},
-		],
-	},
 };
 ---
 
@@ -78,6 +48,7 @@ const jsonLd = {
 		<Hero />
 		<About />
 		<HairMenu />
+		<Refa />
 		<PhotoBand />
 		<CafeMenu />
 		<Access />

@@ -3,6 +3,9 @@ dist/
 # generated types
 .astro/
 
+# temporary PDF renders and source inspection
+tmp/
+
 # dependencies
 node_modules/
 

@@ -1,0 +1,30 @@
+---
+import { Image } from 'astro:assets';
+import refaImage from '../assets/images/refa-veena-equipment.png';
+import Icon from './Icon.astro';
+import { refa, shop } from '../data/shop';
+---
+
+<section class="section refa" id="refa" aria-labelledby="refa-title">
+	<div class="container refa-layout">
+		<div>
+			<header class="section-head" data-reveal>
+				<p class="section-kicker">Beauty care</p>
+				<h2 id="refa-title">ReFa</h2>
+				<p class="refa-model">ULTRA FINE BUBBLE VEENA</p>
+			</header>
+			<p class="lead" data-reveal>いつものシャンプーに、<br />心地よいひとときを。</p>
+			<p class="refa-note" data-reveal>ウルトラファインバブルを使った、サロンでのシャンプー体験。ぜひお試しください。</p>
+			<div class="refa-offer" data-reveal>
+				<span class="refa-period">{refa.period}</span>
+				<p>オプション <strong>＋{refa.optionPrice}<span>円</span></strong></p>
+			</div>
+			<ul class="refa-services" aria-label="体験できるメニュー" data-reveal>{refa.services.map((service) => <li>{service}</li>)}</ul>
+			<p class="refa-note" data-reveal>期間・対象メニューについては、ご予約時にお問い合わせください。</p>
+			<a class="text-link" href={shop.telHref} data-reveal><Icon name="phone" />電話で問い合わせる</a>
+		</div>
+		<figure class="refa-figure" data-reveal>
+			<Image src={refaImage} alt="ReFa VEENAのジェネレーターとシャンプーボウル、シャワーヘッド" widths={[480, 800, 1200]} sizes="(min-width: 880px) 620px, 100vw" quality={85} />
+		</figure>
+	</div>
+</section>
